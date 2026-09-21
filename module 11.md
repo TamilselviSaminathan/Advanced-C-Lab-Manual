@@ -1,6 +1,6 @@
 
 
-EXP NO:21 C PROGRAM TO CREATE A FUNCTION TO FIND THE GREATEST NUMBER
+## EXP NO:21 C PROGRAM TO CREATE A FUNCTION TO FIND THE GREATEST NUMBER
 Aim:
 To write a C program to create a function to find the greatest number
 
@@ -12,55 +12,57 @@ Algorithm:
 5.	Call the max_of_four function with the input integers and store the result in the greater variable
  
 Program:
-#include <stdio.h>
-
-int max_of_four(int n1, int n2, int n3, int n4)
+```
+#include<stdio.h>
+int max_of_four(int a,int b,int c,int d)
 {
-    int greater;
-
-    if (n1 >= n2 && n1 >= n3 && n1 >= n4)
+    if(a>b && a>c && a>d)
     {
-        greater = n1;
+        return a;
+        
     }
-    else if (n2 >= n1 && n2 >= n3 && n2 >= n4)
+    else if(b>a && b>c && b>d)
     {
-        greater = n2;
+        return b;
+        
     }
-    else if (n3 >= n1 && n3 >= n2 && n3 >= n4)
+    else if(c>a && c>b && c>d)
     {
-        greater = n3;
+        return c;
+        
     }
     else
     {
-        greater = n4;
+        return d;
+        
     }
-
-    return greater;
+    
 }
-
 int main()
 {
-    int n1, n2, n3, n4, greater;
-
-    scanf("%d %d %d %d", &n1, &n2, &n3, &n4);
-
-    greater = max_of_four(n1, n2, n3, n4);
-
-    printf("Greatest number = %d", greater);
-
-    return 0;
+    int n1,n2,n3,n4,greater;
+    scanf("%d%d%d%d",&n1,&n2,&n3,&n4); 
+    greater=max_of_four(n1,n2,n3,n4);
+    printf("%d",greater);
 }
+```
+
 
 Output:
-<img width="315" height="267" alt="image" src="https://github.com/user-attachments/assets/e6a63f92-b6b7-47b7-ae7f-d570060da2ad" />
+
+<img width="206" height="274" alt="image" src="https://github.com/user-attachments/assets/bc24d53c-a776-43ac-8896-75bc62105f3d" />
+
+
 
 
 Result:
+
 Thus, the program  that create a function to find the greatest number is verified successfully.
 
 
+
  
-EXP NO:22 C PROGRAM TO PRINT THE MAXIMUM VALUES FOR THE AND, OR AND  XOR COMPARISONS
+## EXP NO:22 C PROGRAM TO PRINT THE MAXIMUM VALUES FOR THE AND, OR AND  XOR COMPARISONS
 Aim:
 To write a C program to print the maximum values for the AND, OR and XOR comparisons
 
@@ -74,66 +76,56 @@ Algorithm:
 7.	Call the calculate_the_max function with input values.
  
 Program:
-#include <stdio.h>
-
-void calculate_the_max(int n, int k)
+```
+#include<stdio.h>
+void calculate_the_max(int n,int k)
 {
-    int a = 0, o = 0, x = 0;
-    int i, j;
-    int and_value, or_value, xor_value;
-
-    for (i = 1; i <= n; i++)
+    int a=0,o=0,x=0;
+    for(int i=1;i<=n;i++)
     {
-        for (j = i + 1; j <= n; j++)
+        for(int j=1+i;j<=n;j++)
         {
-            and_value = i & j;
-            or_value = i | j;
-            xor_value = i ^ j;
-
-            if (and_value < k && and_value > a)
+            if((i&j)>a && (i&j)<k)
             {
-                a = and_value;
+                a=i&j;
+                
             }
-
-            if (or_value < k && or_value > o)
+            if((i|j)>o && (i|j)<k)
             {
-                o = or_value;
+                o=i|j;
+                
             }
-
-            if (xor_value < k && xor_value > x)
+            if((i^j)>x && (i^j)<k)
             {
-                x = xor_value;
+                x=i^j;
+                
             }
+            
         }
-    }
-
-    printf("%d\n", a);
-    printf("%d\n", o);
-    printf("%d\n", x);
 }
-
+printf("%d\n%d\n%d\n",a,o,x);
+}
 int main()
 {
-    int n, k;
-
-    scanf("%d %d", &n, &k);
-
-    calculate_the_max(n, k);
-
-    return 0;
+    int n,k; 
+    scanf("%d%d",&n,&k); 
+    calculate_the_max(n,k);
 }
+```
 
 Output:
-<img width="370" height="310" alt="image" src="https://github.com/user-attachments/assets/e5f75a8f-1f4a-4cc5-baf6-46f34f6e421e" />
+
+<img width="196" height="212" alt="image" src="https://github.com/user-attachments/assets/ef4c8659-c1cd-4fee-b690-179cb171ddbb" />
 
 
 Result:
+
 Thus, the program to print the maximum values for the AND, OR and XOR comparisons
 is verified successfully.
 
 
  
-EXP NO:23 C PROGRAM TO WRITE THE LOGIC FOR THE REQUESTS
+## EXP NO:23 C PROGRAM TO WRITE THE LOGIC FOR THE REQUESTS
 Aim:
 To write a C program to write the logic for the requests
 
@@ -145,46 +137,50 @@ Algorithm:
 5.	Use a for loop to iterate over the queries.
  
 Program:
-#include <stdio.h>
-
+```
+#include<stdio.h> 
 int main()
 {
-    int noshel, noque;
-    int shelarr[100][100];
-    int nobookarr[100] = {0};
-    int query, x, y;
-    int i;
-
-    scanf("%d %d", &noshel, &noque);
-
-    for (i = 0; i < noque; i++)
+    int noshel,noque; 
+    scanf("%d%d",&noshel,&noque); 
+    int shelarr[noshel][noshel];
+    int nobookarr[noshel]; 
+    int k=0,c=0;
+    for(int i=0;i<noque;i++)
     {
-        scanf("%d %d", &query, &x);
-
-        if (query == 1)
+        int queno; 
+        scanf("%d",&queno);
+        if(queno==1)
         {
-            scanf("%d", &y);
-
-            shelarr[x][nobookarr[x]] = y;
-            nobookarr[x]++;
+            int shelno,nopage;
+            scanf("%d%d",&shelno,&nopage);
+            shelarr[shelno][k]=nopage; 
+            nobookarr[shelno]=c+=1;
+            k=k+1;
+            
         }
-        else if (query == 2)
+        else if(queno==2)
         {
-            scanf("%d", &y);
-
-            printf("%d\n", shelarr[x][y]);
+            int pshelno,pbookno;
+            scanf("%d%d",&pshelno,&pbookno); 
+            printf("%d",shelarr[pshelno][pbookno]);
+            
         }
-        else if (query == 3)
+        else if(queno==3)
         {
-            printf("%d\n", nobookarr[x]);
+            int ppshelno;
+            scanf("%d",&ppshelno); 
+            printf("%d",nobookarr[ppshelno]);
         }
+        
     }
-
-    return 0;
 }
+```
 
 Output:
-<img width="186" height="145" alt="image" src="https://github.com/user-attachments/assets/545013bc-77a5-4368-a1b0-7855bd36a979" />
+
+
+<img width="792" height="225" alt="image" src="https://github.com/user-attachments/assets/075f3e0a-5b14-4ba7-88f6-c7fc4995e0df" />
 
 
 
@@ -193,7 +189,7 @@ Thus, the program to write the logic for the requests is verified successfully.
 
 
  
-EXP NO:24 C PROGRAM PRINT THE SUM OF THE INTEGERS IN THE ARRAY.
+## EXP NO:24 C PROGRAM PRINT THE SUM OF THE INTEGERS IN THE ARRAY.
 Aim:
 To write a C program print the sum of the integers in the array.
 
@@ -209,39 +205,38 @@ Algorithm:
 
 
 Program:
-#include <stdio.h>
-
+```
+#include<stdio.h>
 int main()
 {
-    int n, a[100], sum = 0;
-    int i;
-
-    scanf("%d", &n);
-
-    for (i = 0; i < n; i++)
+    int n; scanf("%d",&n);
+    int a[n];
+    int sum=0;
+    for(int i=0;i<n;i++)
     {
-        scanf("%d", &a[i]);
-        sum = sum + a[i];
+        scanf("%d",&a[i]);
+        sum=sum+a[i];
+        
     }
-
-    printf("%d", sum);
-
-    return 0;
+    printf("%d",sum);
 }
+```
 
 Output:
-<img width="251" height="235" alt="image" src="https://github.com/user-attachments/assets/53c90275-19c7-4b95-8f36-39de4ad74f0b" />
+
+<img width="346" height="169" alt="image" src="https://github.com/user-attachments/assets/b6feeddc-587e-4dc9-b2f4-e58610eea90c" />
 
 
  
 
 
 Result:
+
 Thus, the program prints the sum of the integers in the array is verified successfully.
 
 
  
-EXP NO 25: C PROGRAM TO COUNT THE NUMBER OF WORDS IN A      SENTENCE
+## EXP NO 25: C PROGRAM TO COUNT THE NUMBER OF WORDS IN A SENTENCE
 
 
 
@@ -262,39 +257,29 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 
 
 Program:
-#include <stdio.h>
-
+```
+#include<stdio.h>
+#include<string.h>
 int main()
 {
-    char str[200];
-    int i, count = 0;
-    int inWord = 0;
-
-    fgets(str, sizeof(str), stdin);
-
-    for (i = 0; str[i] != '\0'; i++)
-    {
-        if (str[i] != ' ' && str[i] != '\n' && str[i] != '\t')
-        {
-            if (inWord == 0)
-            {
-                count++;
-                inWord = 1;
-            }
-        }
-        else
-        {
-            inWord = 0;
-        }
-    }
-
-    printf("%d", count);
-
+    char str[100];
+    fgets(str,sizeof(str),stdin);
+    int len=sizeof(str);
+    int count=1;
+     for(int i=0;i<len-1;i++){
+         if(str[i]==' ')
+         count++;
+         
+     }
+     printf("Total number of words in the string is :%d",count);
     return 0;
 }
+```
 
 Output:
-<img width="432" height="167" alt="image" src="https://github.com/user-attachments/assets/98340bbd-4131-48a4-8100-bd22c03d10db" />
+
+
+<img width="945" height="175" alt="image" src="https://github.com/user-attachments/assets/83587bce-2476-47d6-be91-5b7fe4623dde" />
 
 
 
