@@ -12,10 +12,48 @@ Algorithm:
 5.	Call the max_of_four function with the input integers and store the result in the greater variable
  
 Program:
-//type your code here
+#include <stdio.h>
+
+int max_of_four(int n1, int n2, int n3, int n4)
+{
+    int greater;
+
+    if (n1 >= n2 && n1 >= n3 && n1 >= n4)
+    {
+        greater = n1;
+    }
+    else if (n2 >= n1 && n2 >= n3 && n2 >= n4)
+    {
+        greater = n2;
+    }
+    else if (n3 >= n1 && n3 >= n2 && n3 >= n4)
+    {
+        greater = n3;
+    }
+    else
+    {
+        greater = n4;
+    }
+
+    return greater;
+}
+
+int main()
+{
+    int n1, n2, n3, n4, greater;
+
+    scanf("%d %d %d %d", &n1, &n2, &n3, &n4);
+
+    greater = max_of_four(n1, n2, n3, n4);
+
+    printf("Greatest number = %d", greater);
+
+    return 0;
+}
 
 Output:
-//paste your output here
+<img width="315" height="267" alt="image" src="https://github.com/user-attachments/assets/e6a63f92-b6b7-47b7-ae7f-d570060da2ad" />
+
 
 Result:
 Thus, the program  that create a function to find the greatest number is verified successfully.
@@ -36,10 +74,58 @@ Algorithm:
 7.	Call the calculate_the_max function with input values.
  
 Program:
-//type your code here
+#include <stdio.h>
+
+void calculate_the_max(int n, int k)
+{
+    int a = 0, o = 0, x = 0;
+    int i, j;
+    int and_value, or_value, xor_value;
+
+    for (i = 1; i <= n; i++)
+    {
+        for (j = i + 1; j <= n; j++)
+        {
+            and_value = i & j;
+            or_value = i | j;
+            xor_value = i ^ j;
+
+            if (and_value < k && and_value > a)
+            {
+                a = and_value;
+            }
+
+            if (or_value < k && or_value > o)
+            {
+                o = or_value;
+            }
+
+            if (xor_value < k && xor_value > x)
+            {
+                x = xor_value;
+            }
+        }
+    }
+
+    printf("%d\n", a);
+    printf("%d\n", o);
+    printf("%d\n", x);
+}
+
+int main()
+{
+    int n, k;
+
+    scanf("%d %d", &n, &k);
+
+    calculate_the_max(n, k);
+
+    return 0;
+}
 
 Output:
-//paste your output here
+<img width="370" height="310" alt="image" src="https://github.com/user-attachments/assets/e5f75a8f-1f4a-4cc5-baf6-46f34f6e421e" />
+
 
 Result:
 Thus, the program to print the maximum values for the AND, OR and XOR comparisons
@@ -59,10 +145,47 @@ Algorithm:
 5.	Use a for loop to iterate over the queries.
  
 Program:
-//type your code here
+#include <stdio.h>
+
+int main()
+{
+    int noshel, noque;
+    int shelarr[100][100];
+    int nobookarr[100] = {0};
+    int query, x, y;
+    int i;
+
+    scanf("%d %d", &noshel, &noque);
+
+    for (i = 0; i < noque; i++)
+    {
+        scanf("%d %d", &query, &x);
+
+        if (query == 1)
+        {
+            scanf("%d", &y);
+
+            shelarr[x][nobookarr[x]] = y;
+            nobookarr[x]++;
+        }
+        else if (query == 2)
+        {
+            scanf("%d", &y);
+
+            printf("%d\n", shelarr[x][y]);
+        }
+        else if (query == 3)
+        {
+            printf("%d\n", nobookarr[x]);
+        }
+    }
+
+    return 0;
+}
 
 Output:
-//paste your output here
+<img width="186" height="145" alt="image" src="https://github.com/user-attachments/assets/545013bc-77a5-4368-a1b0-7855bd36a979" />
+
 
 
 Result:
@@ -86,10 +209,29 @@ Algorithm:
 
 
 Program:
-//type your code here
+#include <stdio.h>
+
+int main()
+{
+    int n, a[100], sum = 0;
+    int i;
+
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+        sum = sum + a[i];
+    }
+
+    printf("%d", sum);
+
+    return 0;
+}
 
 Output:
-//paste your output here
+<img width="251" height="235" alt="image" src="https://github.com/user-attachments/assets/53c90275-19c7-4b95-8f36-39de4ad74f0b" />
+
 
  
 
@@ -120,10 +262,40 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 
 
 Program:
-//type your code here
+#include <stdio.h>
+
+int main()
+{
+    char str[200];
+    int i, count = 0;
+    int inWord = 0;
+
+    fgets(str, sizeof(str), stdin);
+
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] != ' ' && str[i] != '\n' && str[i] != '\t')
+        {
+            if (inWord == 0)
+            {
+                count++;
+                inWord = 1;
+            }
+        }
+        else
+        {
+            inWord = 0;
+        }
+    }
+
+    printf("%d", count);
+
+    return 0;
+}
 
 Output:
-//paste your output here
+<img width="432" height="167" alt="image" src="https://github.com/user-attachments/assets/98340bbd-4131-48a4-8100-bd22c03d10db" />
+
 
 
 
